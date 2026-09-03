@@ -13,7 +13,7 @@ If you wanted to play multiplayer on vanilla PICO-8, you have to use the same co
 
 ### 1. Clone the repository
 ```
-git clone https://github.com/Nicovw321/pico8-lan-bridge.git
+git clone https://github.com/Nicovw321/PICO-8-LAN-bridge.git
 cd pico8-lan-bridge
 ```
 
@@ -435,7 +435,7 @@ _set_fps(60) -- set custom fps
 --------------------------
 ```
 
-If this does **not** fix your problem, it can be that your STDIN/STDOUT functions are broken, as any problem with the implementation can immediately cause a deadlock. Try to use the code from the example carts, and if those didn't work, [open a discussion.](https://github.com/Nicovw321/pico8-lan-bridge/discussions)
+If this does **not** fix your problem, it can be that your STDIN/STDOUT functions are broken, as any problem with the implementation can immediately cause a deadlock. Try to use the code from the example carts, and if those didn't work, [open a discussion.](https://github.com/Nicovw321/PICO-8-LAN-bridge/discussions)
 
 **How do I know my server's IP address?**
 
