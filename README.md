@@ -35,7 +35,7 @@ The protocol is relatively simple.
 
 Packets are sent from the cartridge to the bridge (and vice versa) in bundles of 0-255 packets, and every packet must contain between 1 and 256 bytes of data (excluding the metadata).
 
-Every 15th of a second you must send a single bundle of packets, and when you do so, you immediately receive one back from the bridge.
+Every other frame, you must send a single bundle of packets, and when you do so, you immediately receive one bundle back from the bridge.
 
 The bundle contains 1 byte for the number of packets to send, then the following bytes is the packet data.
 
@@ -392,7 +392,7 @@ There are three example carts inside the ``example carts`` folder.
 
 **PICO-8 keeps hanging. Why is this happening?**
 
-This can happen if the 15hz clock wasn't properly implemented. If you run your game at 30fps, you can run a 2-frame clock:
+This can happen if the IO clock wasn't properly implemented. The clock must start *sending* data on the first frame. If it tries to receive data on the first frame, both the bridge and PICO-8 will be waiting for each other to send data, ending up on a deadlock.
 
 ```lua
 
@@ -414,28 +414,7 @@ local clock = true
 
 ```
 
-If you run your game at 60fps, you run a 4-frame clock:
-
-```lua
-local clock = 0
-
-_set_fps(60) -- set custom fps
-
----- inside cart_io() ----
-    if clock==0 then
-        -- send data...
-    end
-
-    if clock==2 then
-        -- receive data...
-    end
-
-    clock += 1
-    clock %= 4
---------------------------
-```
-
-If this does **not** fix your problem, it can be that your STDIN/STDOUT functions are broken, as any problem with the implementation can immediately cause a deadlock. Try to use the code from the example carts, and if those didn't work, [open a discussion.](https://github.com/Nicovw321/PICO-8-LAN-bridge/discussions)
+If this does **not** fix your problem, it can be that your STDIN/STDOUT functions are broken, as any problem with the implementation can immediately cause a deadlock. Try to use the code from the example carts, and if those didn't work, [open a discussion.](https://github.com/Nicovw321/PICO-8-LAN-bridge/discussions) I'm pretty busy, but at some point I'll be able to respond.
 
 **How do I know my server's IP address?**
 
