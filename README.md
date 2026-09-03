@@ -13,8 +13,8 @@ If you wanted to play multiplayer on vanilla PICO-8, you have to use the same co
 
 ### 1. Clone the repository
 ```
-git clone https://github.com/user/repo.git
-cd repo
+git clone https://github.com/Nicovw321/pico8-lan-bridge.git
+cd pico8-lan-bridge
 ```
 
 ### 2. Set up the PICO-8 path on core.py
@@ -435,7 +435,7 @@ _set_fps(60) -- set custom fps
 --------------------------
 ```
 
-If this does **not** fix your problem, it can be that your STDIN/STDOUT functions are broken, as any problem with the implementation can immediately cause a deadlock. Try to use the code from the example carts, and if those didn't work, [open a discussion.](https://github.com/yourusername/repo/discussions)
+If this does **not** fix your problem, it can be that your STDIN/STDOUT functions are broken, as any problem with the implementation can immediately cause a deadlock. Try to use the code from the example carts, and if those didn't work, [open a discussion.](https://github.com/Nicovw321/pico8-lan-bridge/discussions)
 
 **How do I know my server's IP address?**
 
