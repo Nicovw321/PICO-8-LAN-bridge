@@ -151,7 +151,7 @@ print("starting server")
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server.bind(("0.0.0.0", 5000))
+server.bind(("127.0.0.1", 5000)) # LAN only (PLEASE don't change this)
 server.listen()
 
 thread = core.attach_thread(accept_handler, (server,))
@@ -163,7 +163,7 @@ try:
 except:
     ip = "[Unable to find it, type ipconfig on a command prompt]"
 
-print("Started server at IP",ip,"(write this IP on LAN_client.py)")
+print("Started server at IP",ip)
 
 try:
     while True:
